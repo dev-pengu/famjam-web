@@ -1,0 +1,19 @@
+.form {
+  padding: var(--space-16);
+  background: color-mix(
+    in srgb,
+    var(--color-surface-brand-secondary-light) 65%,
+    transparent
+  );
+  border-radius: var(--radius-16);
+}
+
+.formControls {
+  padding-top: var(--space-8);
+  display: flex;
+  align-items: center;
+}
+
+.submitButton {
+  margin-left: var(--space-8);
+}

@@ -1,0 +1,8 @@
+.listItem:hover {
+  background: var(--color-surface-tertiary);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--space-4);
+}

@@ -1,0 +1,33 @@
+.subtitle {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+.subtext {
+  padding-left: var(--space-8);
+  padding-bottom: var(--space-16);
+}
+
+.oauthWrapper {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space-32);
+  display: flex;
+  justify-content: center;
+}
+
+.divider {
+  margin: var(--space-16) 0;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.actionsWrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-16);
+}

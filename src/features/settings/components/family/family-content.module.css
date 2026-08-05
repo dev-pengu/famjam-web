@@ -1,0 +1,27 @@
+.divider {
+  margin: var(--space-32) 0;
+}
+
+.sectionTitle {
+  padding-bottom: var(--space-16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.activateButton {
+  margin-right: var(--space-4);
+}
+
+.listItem:hover {
+  background: var(--color-surface-tertiary);
+}
+
+.spinnerContainer {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+}

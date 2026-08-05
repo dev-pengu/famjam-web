@@ -1,0 +1,24 @@
+.sectionTitle {
+  padding-bottom: var(--space-16);
+}
+
+.editProfileButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.divider {
+  margin: var(--space-32) 0;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: var(--space-8);
+  justify-content: start;
+}
+
+.sectionSubTitle {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-16);
+}

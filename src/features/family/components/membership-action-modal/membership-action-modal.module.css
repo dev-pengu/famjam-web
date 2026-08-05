@@ -1,0 +1,13 @@
+.role {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.buttonContainer {
+  display: flex;
+  gap: var(--space-8);
+  justify-content: center;
+  padding: var(--space-16) 0;
+}
+
+

@@ -1,0 +1,13 @@
+.wrapper {
+  padding: var(--space-4) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: var(--space-8);
+}
+
+@media (--desktop) {
+  .wrapper {
+    flex-direction: row;
+  }
+}

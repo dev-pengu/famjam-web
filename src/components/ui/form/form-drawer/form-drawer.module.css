@@ -1,0 +1,17 @@
+.drawerContent {
+  display: flex;
+  max-width: 540px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (--tablet) {
+  .drawerContent {
+    max-width: 800px;
+  }
+}

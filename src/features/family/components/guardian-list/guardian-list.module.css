@@ -1,0 +1,19 @@
+.guardianTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+}
+
+.guardianList {
+  margin-top: var(--space-16);
+}
+
+.listItem:hover {
+  background: var(--color-surface-tertiary);
+}
+
+.guardianForm {
+  display: flex;
+  gap: var(--space-8);
+  padding: var(--space-8) 0;
+}

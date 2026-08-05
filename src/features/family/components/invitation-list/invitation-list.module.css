@@ -1,0 +1,15 @@
+.spinnerWrapper {
+  display: flex;
+  height: 300px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.noResultsWrapper {
+  display: flex;
+  height: 300px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}

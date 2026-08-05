@@ -1,0 +1,22 @@
+.subtitle {
+  padding-top: var(--space-8);
+  text-align: center;
+}
+
+.oauthWrapper {
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space-32);
+}
+
+.divider {
+  margin: var(--space-16) 0;
+}
+
+.linkForm {
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+  margin: var(--space-16) 0;
+}
