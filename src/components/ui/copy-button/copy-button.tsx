@@ -80,8 +80,11 @@ export const CopyButton = ({
         aria-label={copied ? 'Copied' : ariaLabel}
         data-testid={testID ? `${testID}-button` : undefined}
       >
-        {/** update Download to clipboard */}
-        {copied ? <Icon name={IconName.Check} size={14} /> : <Icon name={IconName.Download} size={14} />}
+        {copied ? (
+          <Icon name={IconName.Check} size={14} />
+        ) : (
+          <Icon name={IconName.Copy} size={14} />
+        )}
       </button>
 
       <span aria-live="polite" className={styles.srOnly}>

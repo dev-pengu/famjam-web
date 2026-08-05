@@ -16,10 +16,10 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@famjam/fonts": "^0.0.11",
-    "@famjam/icons": "^0.0.11",
-    "@famjam/tokens": "^0.0.11",
-    "@famjam/ui": "^0.0.11",
+    "@famjam/fonts": "^0.0.12",
+    "@famjam/icons": "^0.0.12",
+    "@famjam/tokens": "^0.0.12",
+    "@famjam/ui": "^0.0.12",
     "@hookform/resolvers": "^5.5.3",
     "@radix-ui/react-dialog": "^1.1.22",
     "@radix-ui/react-tabs": "^1.1.21",

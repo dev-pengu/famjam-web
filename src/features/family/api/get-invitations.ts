@@ -16,7 +16,7 @@ export const getInvitationsQueryOptions = ({
   familyId: string;
 }) => {
   return queryOptions({
-    queryKey: ['invitations'],
+    queryKey: ['invitations', familyId],
     queryFn: () => getInvitations(familyId),
   });
 };

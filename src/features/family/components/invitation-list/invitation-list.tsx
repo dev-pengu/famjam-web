@@ -70,6 +70,7 @@ export const InvitationList = ({
             className={cx(!invitation.redeemable && styles.unredeemable)}
           >
             <ListItemText primary={invitation.email} />
+            <span className={styles.actionWrapper}>
             <CopyButton testID="invite-code" aria-label="Copy invite code">
               <Typography.Body as="code" size={TypographyTextSize.Small}>
                 {invitation.code}
@@ -90,6 +91,7 @@ export const InvitationList = ({
                 Revoke
               </Button>
             </Can>
+            </span>
           </ListItem>
         ))}
       </List>

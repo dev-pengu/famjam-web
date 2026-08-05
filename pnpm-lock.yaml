@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@famjam/fonts':
-        specifier: ^0.0.11
-        version: 0.0.11
+        specifier: ^0.0.12
+        version: 0.0.12
       '@famjam/icons':
-        specifier: ^0.0.11
-        version: 0.0.11
+        specifier: ^0.0.12
+        version: 0.0.12
       '@famjam/tokens':
-        specifier: ^0.0.11
-        version: 0.0.11
+        specifier: ^0.0.12
+        version: 0.0.12
       '@famjam/ui':
-        specifier: ^0.0.11
-        version: 0.0.11(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)
+        specifier: ^0.0.12
+        version: 0.0.12(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)
       '@hookform/resolvers':
         specifier: ^5.5.3
         version: 5.5.3(@sinclair/typebox@0.27.12)(@standard-schema/spec@1.1.0)(react-hook-form@7.82.0(react@19.2.8))(zod@4.4.3)
@@ -525,17 +525,17 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@famjam/fonts@0.0.11':
-    resolution: {integrity: sha512-5LnQXdeWCkQQlvj5bj9pz6Mc1rf2RYFvwe8w81UozFpe6vD9u72V1WLoma17viGAICDngFkU0HqBnZEVW0HCQg==}
+  '@famjam/fonts@0.0.12':
+    resolution: {integrity: sha512-cgE1FyGvUKerRhx33si6uA1lcQfmeHe5zgI2+r2GNykXSRX0U5PUWos3cn99sjPW2fsKAtvuro8PhRhQQBU+3g==}
 
-  '@famjam/icons@0.0.11':
-    resolution: {integrity: sha512-OiR6vxA/cTXc+APu+4vFlbtZT/p8shBqSzD1ZjqvNjaExizSWzvNQwVA9r8EzibtLqhCd2ieemvRAa1BhdgtfQ==}
+  '@famjam/icons@0.0.12':
+    resolution: {integrity: sha512-X92vNrH2siHS5Ezz4XF0atJ+/pTB/jrIj2y24NFt1sTe/P+OUCz0vJ+bFCXaP0iK4bb4dcjfHa7LkpNSXYyHRQ==}
 
-  '@famjam/tokens@0.0.11':
-    resolution: {integrity: sha512-PjBsE3idaBpPcQa2QwkAMdGFo7hvESB+GHxjH0SeJMelfsbwqEM0/vpKPO+xK4QYgdPsQlvbG6zq9ESwDSpZ9A==}
+  '@famjam/tokens@0.0.12':
+    resolution: {integrity: sha512-En7B0pSZQxt8+MwzEtuuezc6BP7pJxuirazPJeu/89spNDP66QAlVcoQRYMjrOK5iUTlaErJiiYleEAYjH0Zhg==}
 
-  '@famjam/ui@0.0.11':
-    resolution: {integrity: sha512-tSWP8JIjnTBUjFGprGGK4nIDBK18hu8Xf92Jlo089CeCC7ZykWaJHivLmGQZvW6oIlYoGakPc9KWl6XU26LBnA==}
+  '@famjam/ui@0.0.12':
+    resolution: {integrity: sha512-2Z9CED67VldYvsGQkohwygbKYLy98kHGIAD0ygoX8zoDTo+QcsLaya6b3Sxc5/GNn9mQlH+dTKTe4WTClsismQ==}
     peerDependencies:
       react-native-svg: '>=14'
 
@@ -4895,19 +4895,19 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@famjam/fonts@0.0.11': {}
+  '@famjam/fonts@0.0.12': {}
 
-  '@famjam/icons@0.0.11': {}
+  '@famjam/icons@0.0.12': {}
 
-  '@famjam/tokens@0.0.11':
+  '@famjam/tokens@0.0.12':
     dependencies:
       json-to-ts: 2.1.0
 
-  '@famjam/ui@0.0.11(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)':
+  '@famjam/ui@0.0.12(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)':
     dependencies:
-      '@famjam/fonts': 0.0.11
-      '@famjam/icons': 0.0.11
-      '@famjam/tokens': 0.0.11
+      '@famjam/fonts': 0.0.12
+      '@famjam/icons': 0.0.12
+      '@famjam/tokens': 0.0.12
       '@radix-ui/primitive': 1.1.7
       '@radix-ui/react-accessible-icon': 1.1.13(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@radix-ui/react-checkbox': 1.3.9(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)

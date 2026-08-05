@@ -67,7 +67,7 @@ export const ProfileContent = () => {
                     color={ButtonColor.Secondary}
                     variant={ButtonVariant.Glass}
                   >
-                    <Icon name={IconName.Settings} size={16} />
+                    <Icon name={IconName.Edit} size={16} />
                   </Button>
                 </Tooltip>
               )}
