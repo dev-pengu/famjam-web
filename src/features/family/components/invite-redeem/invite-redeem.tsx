@@ -11,6 +11,8 @@ import {
   Button,
   ButtonSize,
   ButtonVariant,
+  Icon,
+  IconName,
   Input,
   InputState,
   InputVariant,
@@ -76,8 +78,9 @@ export const InviteRedeem = ({ className }: Readonly<InviteRedeemProps>) => {
                 size={ButtonSize.Small}
                 loading={inviteRedeemMutation.isPending}
                 className={styles.submitButton}
+                aria-label="Join"
               >
-                Submit
+                <Icon name={IconName.Add} size={18} />
               </Button>
             </div>
           </>

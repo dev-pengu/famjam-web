@@ -19,29 +19,35 @@ export const FormDrawer = ({
   children,
   isDone,
   triggerButton,
+  open: controlledOpen,
+  onOpenChange,
   submitButton,
   position = 'bottom',
 }: FormDrawerProps) => {
-  const { close, open, isOpen } = useDisclosure();
+  const isControlled = controlledOpen !== undefined;
+  const { close, open, isOpen: internalIsOpen } = useDisclosure();
+  const isOpen = isControlled ? controlledOpen : internalIsOpen;
+
+  const setOpen = (next: boolean) => {
+    if (isControlled) {
+      onOpenChange?.(next);
+    } else if (next) {
+      open();
+    } else {
+      close();
+    }
+  };
 
   useEffect(() => {
     if (isDone) {
-      close();
+      setOpen(false);
     }
-  }, [isDone, close]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDone]);
 
   return (
-    <Drawer
-      open={isOpen}
-      onOpenChange={(isOpen) => {
-        if (!isOpen) {
-          close();
-        } else {
-          open();
-        }
-      }}
-    >
-      <DrawerTrigger asChild>{triggerButton}</DrawerTrigger>
+    <Drawer open={isOpen} onOpenChange={setOpen}>
+      {triggerButton && <DrawerTrigger asChild>{triggerButton}</DrawerTrigger>}
       <DrawerContent className={styles.drawerContent} variant={position}>
         <div className={styles.mainContent}>
           <DrawerHeader>
@@ -49,7 +55,7 @@ export const FormDrawer = ({
           </DrawerHeader>
           <div>{children}</div>
         </div>
-        <DrawerFooter>
+        <DrawerFooter className={styles.drawerFooter}>
           <DrawerClose asChild>
             <Button
               variant={ButtonVariant.Glass}

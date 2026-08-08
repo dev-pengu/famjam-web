@@ -1,0 +1,50 @@
+.card {
+  cursor: pointer;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.cardTime {
+  display: flex;
+  flex-direction: column;
+  min-width: 50px;
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardTags {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptionText {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.categoryIcons {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.participants {
+  margin-top: var(--space-16);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}

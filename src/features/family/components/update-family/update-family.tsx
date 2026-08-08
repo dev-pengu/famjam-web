@@ -2,6 +2,9 @@ import {
   Button,
   ButtonColor,
   ButtonVariant,
+  Combobox,
+  Icon,
+  IconName,
   Input,
   InputState,
   InputVariant,
@@ -17,17 +20,28 @@ import { Controller } from 'react-hook-form';
 import styles from './update-family.module.css';
 import { useState } from 'react';
 import type { Family, FamilyWithMembership } from '@/types/api';
+import { useTimezones, toTimezoneComboboxOptions } from '@/hooks/use-timezones';
 
-export const UpdateFamily = ({ family }: { family: Family | FamilyWithMembership }) => {
+export const UpdateFamily = ({
+  family,
+  onSuccess,
+}: {
+  family: Family | FamilyWithMembership;
+  onSuccess?: () => void;
+}) => {
   const { addToast } = useSnackbar();
   const updateFamilyMutation = useUpdateFamily({
     mutationConfig: {
       onSuccess: () => {
+        onSuccess?.();
+        setIsEditing(false);
         addToast({ message: 'Family updated successfully!' });
       },
     },
   });
   const [isEditing, setIsEditing] = useState(false);
+  const { data: timezones } = useTimezones();
+  const timezoneOptions = toTimezoneComboboxOptions(timezones);
 
   return (
     <>
@@ -44,6 +58,7 @@ export const UpdateFamily = ({ family }: { family: Family | FamilyWithMembership
             defaultValues: {
               name: family.name,
               invitationTtlHours: family.invitation_ttl_hours ?? 0,
+              timezone: family.default_timezone ?? undefined,
             },
           }}
         >
@@ -81,14 +96,34 @@ export const UpdateFamily = ({ family }: { family: Family | FamilyWithMembership
                   />
                 )}
               />
+              <Controller
+                name="timezone"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <Combobox
+                    options={timezoneOptions}
+                    {...field}
+                    readOnly={!isEditing}
+                    label="Default Timezone"
+                    labelVariant={LabelVariant.Float}
+                    state={error ? InputState.Error : InputState.Default}
+                    helperMessage={
+                      error?.message ??
+                      'Used for family members who have not set their own timezone.'
+                    }
+                    className={styles.input}
+                  />
+                )}
+              />
               <div className={styles.buttonContainer}>
                 {!isEditing && (
                   <Button
                     onClick={() => setIsEditing(true)}
                     variant={ButtonVariant.Glass}
                     color={ButtonColor.Secondary}
+                    aria-label="Edit Family Info"
                   >
-                    Edit
+                    <Icon name={IconName.Edit} size={18} />
                   </Button>
                 )}
                 {isEditing && (
@@ -99,16 +134,18 @@ export const UpdateFamily = ({ family }: { family: Family | FamilyWithMembership
                       variant={ButtonVariant.Glass}
                       color={ButtonColor.Error}
                       className={styles.cancelEditButton}
+                      aria-label="Cancel"
                     >
-                      Cancel
+                      <Icon name={IconName.Block} size={18} />
                     </Button>
                     <Button
                       loading={updateFamilyMutation.isPending}
                       type="submit"
                       variant={ButtonVariant.Glass}
                       color={ButtonColor.Secondary}
+                      aria-label="Save"
                     >
-                      Save Changes
+                      <Icon name={IconName.Publish} size={18} />
                     </Button>
                   </>
                 )}

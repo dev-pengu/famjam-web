@@ -36,6 +36,7 @@ export const policies: Record<
   editFamilySettings: (role) => role === 'owner' || role === 'admin',
   leaveFamily: (role) => role === 'admin' || role === 'adult',
   canManageMemberships: (role) => role === 'owner' || role === 'admin',
+  setColor: (role) => role === 'owner' || role === 'admin',
 };
 
 export const canAccess = (
@@ -65,7 +66,7 @@ export const canAccessManaged = (
     actingMembership.role === 'owner' ||
     actingMembership.role === 'admin' ||
     (actingMembership.role === 'adult' &&
-      targetPerson.guardians!.find(
+      targetPerson.guardianships!.find(
         (p) => p.id === actingMembership.person.id,
       )) !== undefined
   );

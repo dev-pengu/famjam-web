@@ -1,0 +1,12 @@
+.participantList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.weekdayRow {
+  display: flex;
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+}

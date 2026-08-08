@@ -18,3 +18,15 @@
   display: flex;
   gap: var(--space-16);
 }
+
+.invitation {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+@media (--tablet) {
+  .invitation {
+    flex-direction: row;
+  }
+}

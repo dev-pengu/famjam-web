@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.rangeModeToggle {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.empty {
+  padding: var(--space-24) 0;
+}
+
+.dayGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.dayHeader {
+  padding-top: var(--space-8);
+}
+

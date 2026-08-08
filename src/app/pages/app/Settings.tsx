@@ -1,6 +1,6 @@
 import { ContentLayout } from '@/components/layouts';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui';
-import { ProfileContent, FamilyContent } from '@/features/settings/components';
+import { ProfileContent, FamilyContent, NotificationContent } from '@/features/settings/components';
 import { useSearchParams } from 'react-router-dom';
 
 const Settings = () => {
@@ -27,7 +27,9 @@ const Settings = () => {
         <TabsContent value="profile">
           <ProfileContent />
         </TabsContent>
-        <TabsContent value="notification">Notification Settings</TabsContent>
+        <TabsContent value="notification">
+          <NotificationContent />
+        </TabsContent>
         <TabsContent value="family">
           <FamilyContent />
         </TabsContent>

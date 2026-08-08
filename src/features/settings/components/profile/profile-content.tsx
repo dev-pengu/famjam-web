@@ -26,6 +26,7 @@ import { RequiresVerification } from '@/features/auth/components/requires-verifi
 import { ChangePassword } from './change-password/change-password';
 import { AccountRequest } from './account-request/account-request';
 import { AccountRequestKind } from '@/types/api';
+import { UpdateTimezone } from './update-timezone';
 
 export const ProfileContent = () => {
   const user = useUser();
@@ -90,6 +91,19 @@ export const ProfileContent = () => {
               person={user.data.person}
             />
           )}
+        </div>
+      </section>
+      <Divider className={styles.divider} />
+      <section>
+        <Typography.Title
+          size={TypographyTextSize.Small}
+          bold
+          className={styles.sectionTitle}
+        >
+          Timezone
+        </Typography.Title>
+        <div className={styles.sectionContent}>
+          {user.data && <UpdateTimezone user={user.data} />}
         </div>
       </section>
       <Divider className={styles.divider} />

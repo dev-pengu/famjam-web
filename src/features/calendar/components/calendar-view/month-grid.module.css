@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-8);
+  overflow: hidden;
+}
+
+.weekdayRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.weekdayLabel {
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.weekRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekRow:not(:last-child) {
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.dayCell {
+  /* min-height: 112px; */
+  height: 112px;
+  width: 112px;
+  box-sizing: border-box;
+  padding: var(--space-4);
+  border-right: 1px solid var(--color-border-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.weekRow > .dayCell:last-child {
+  border-right: none;
+}
+
+.outsideMonth {
+  background: var(--color-surface-secondary);
+}
+
+.outsideMonth .dayNumber {
+  color: var(--color-text-tertiary);
+}
+
+.dayNumber {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-4);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.today {
+  background: var(--color-text-brand-primary-dark, var(--color-border-primary));
+  color: var(--color-surface-primary);
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.eventRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-4);
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+}
+
+.eventRow:hover {
+  background: var(--color-surface-secondary);
+}
+
+.eventDot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.eventLabel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-size-12);
+  color: var(--color-text-primary);
+}
+
+.moreButton {
+  border: none;
+  background: none;
+  padding: 1px var(--space-2);
+  text-align: left;
+  cursor: pointer;
+}

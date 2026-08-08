@@ -10,6 +10,7 @@ import { getFamilyQueryOptions } from './get-family';
 export const updateFamilyInputSchema = z.object({
   name: z.string().min(3, 'Required'),
   invitationTtlHours: z.int().optional(),
+  timezone: z.string().optional(),
 });
 
 export type UpdateFamilyInput = z.infer<typeof updateFamilyInputSchema>;
@@ -26,6 +27,7 @@ export const updateFamily = ({
     ...((data.invitationTtlHours ?? 0) > 0 && {
       invitation_ttl_hours: data.invitationTtlHours,
     }),
+    ...(data.timezone && { default_timezone: data.timezone }),
   });
 };
 

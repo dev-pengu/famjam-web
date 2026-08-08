@@ -6,6 +6,8 @@ import {
   ButtonVariant,
   ColorSpinner,
   ColorSpinnerSize,
+  Icon,
+  IconName,
   List,
   ListItem,
   ListItemText,
@@ -67,30 +69,33 @@ export const InvitationList = ({
         {invitations.map((invitation) => (
           <ListItem
             key={invitation.id}
-            className={cx(!invitation.redeemable && styles.unredeemable)}
+            className={cx(
+              styles.invitation,
+              !invitation.redeemable && styles.unredeemable,
+            )}
           >
             <ListItemText primary={invitation.email} />
             <span className={styles.actionWrapper}>
-            <CopyButton testID="invite-code" aria-label="Copy invite code">
-              <Typography.Body as="code" size={TypographyTextSize.Small}>
-                {invitation.code}
-              </Typography.Body>
-            </CopyButton>
-            <Can action="revokeInvitation">
-              <Button
-                onClick={() =>
-                  deleteInvitationMutation.mutate({
-                    invitationId: invitation.id,
-                    familyId,
-                  })
-                }
-                variant={ButtonVariant.Glass}
-                color={ButtonColor.Error}
-                size={ButtonSize.Small}
-              >
-                Revoke
-              </Button>
-            </Can>
+              <CopyButton testID="invite-code" aria-label="Copy invite code">
+                <Typography.Body as="code" size={TypographyTextSize.Small}>
+                  {invitation.code}
+                </Typography.Body>
+              </CopyButton>
+              <Can action="revokeInvitation">
+                <Button
+                  onClick={() =>
+                    deleteInvitationMutation.mutate({
+                      invitationId: invitation.id,
+                      familyId,
+                    })
+                  }
+                  variant={ButtonVariant.Glass}
+                  color={ButtonColor.Error}
+                  size={ButtonSize.Small}
+                >
+                  <Icon name={IconName.Delete} size={18} />
+                </Button>
+              </Can>
             </span>
           </ListItem>
         ))}

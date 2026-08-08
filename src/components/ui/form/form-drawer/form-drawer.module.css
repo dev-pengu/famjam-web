@@ -3,11 +3,17 @@
   max-width: 540px;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: scroll;
 }
 
 .mainContent {
   display: flex;
   flex-direction: column;
+}
+
+.drawerFooter {
+  display: flex;
+  gap: var(--space-8);
 }
 
 @media (--tablet) {

@@ -1,0 +1,132 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.grid {
+  display: flex;
+  overflow-x: auto;
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-8);
+}
+
+.gutterColumn {
+  flex-shrink: 0;
+  width: 56px;
+  border-right: 1px solid var(--color-border-secondary);
+}
+
+.dayHeaderSpacer {
+  height: 56px;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.allDaySpacer {
+  min-height: 36px;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.hourLabel {
+  box-sizing: border-box;
+  padding: 0 var(--space-4);
+  text-align: right;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-12);
+  transform: translateY(-0.5em);
+}
+
+.dayColumn {
+  flex: 1 0 130px;
+  min-width: 130px;
+  border-right: 1px solid var(--color-border-secondary);
+}
+
+.dayColumn:last-child {
+  border-right: none;
+}
+
+.dayHeader {
+  height: 56px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.today {
+  color: var(--color-text-brand-primary-dark, var(--color-text-primary));
+}
+
+.allDayRow {
+  min-height: 36px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+
+.allDayChip {
+  cursor: pointer;
+}
+
+.hourGrid {
+  position: relative;
+}
+
+.hourRow {
+  box-sizing: border-box;
+  border-top: 1px solid var(--color-border-secondary);
+}
+
+.eventBlock {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-4);
+  border: none;
+  border-left: 3px solid var(--color-border-primary);
+  border-radius: var(--radius-4);
+  background: var(--color-surface-secondary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.eventBlockTitle {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eventBlockTime {
+  font-size: var(--font-size-12);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -3,6 +3,9 @@ import {
   ButtonColor,
   ButtonSize,
   ButtonVariant,
+  ColorSwatchPicker,
+  Icon,
+  IconName,
   Modal,
   ModalActions,
   ModalContent,
@@ -20,11 +23,13 @@ import {
   useUpdateMembership,
   type ActionType,
 } from '../../api/membership/update-membership';
+import { useUpdateMembershipColor } from '../../api/membership/update-membership-color';
 import { useRemoveMembership } from '../../api/membership/remove-membership';
 import { useDeleteDependent } from '../../api/dependent/delete-dependent';
 import { CanManaged } from '@/components/can-managed';
 import { ClaimManagedForm } from '../claim-managed-form/claim-managed-form';
 import { GuardianList } from '../guardian-list/guardian-list';
+import type { MembershipColor } from '@/types/api';
 
 export const MembershipActionModal = ({
   membership,
@@ -63,6 +68,12 @@ export const MembershipActionModal = ({
       },
     },
   });
+  const updateColorMutation = useUpdateMembershipColor({
+    familyId: membership.family_id,
+    mutationConfig: {
+      onSuccess: () => addToast({ message: 'Color updated' }),
+    },
+  });
 
   const handleRoleMutation = (action: ActionType) => {
     updateMembershipMutation.mutate({
@@ -82,6 +93,7 @@ export const MembershipActionModal = ({
             size={ButtonSize.Small}
             loading={updateMembershipMutation.isPending}
             onClick={() => handleRoleMutation(action.ageUp)}
+            aria-label="Convert to an adult account"
           >
             Age Up
           </Button>
@@ -92,6 +104,7 @@ export const MembershipActionModal = ({
             size={ButtonSize.Small}
             loading={claimFormOpen}
             onClick={() => openClaimForm()}
+            aria-label="Migrate to full account"
           >
             Migrate
           </Button>
@@ -108,6 +121,7 @@ export const MembershipActionModal = ({
                 dependentId: membership.id,
               })
             }
+            aria-label="Remove member"
           >
             Remove
           </Button>
@@ -123,6 +137,7 @@ export const MembershipActionModal = ({
             size={ButtonSize.Small}
             loading={updateMembershipMutation.isPending}
             onClick={() => handleRoleMutation(action.grant)}
+            aria-label="Grant user admin"
           >
             Grant Admin
           </Button>
@@ -134,6 +149,7 @@ export const MembershipActionModal = ({
             color={ButtonColor.Warning}
             loading={updateMembershipMutation.isPending}
             onClick={() => handleRoleMutation(action.revoke)}
+            aria-label="Revoke admin privileges"
           >
             Revoke Admin
           </Button>
@@ -144,6 +160,7 @@ export const MembershipActionModal = ({
             size={ButtonSize.Small}
             loading={updateMembershipMutation.isPending}
             onClick={() => handleRoleMutation(action.transfer)}
+            aria-label="Transfer ownership"
           >
             Make Owner
           </Button>
@@ -161,6 +178,7 @@ export const MembershipActionModal = ({
                 membershipId: membership.id,
               })
             }
+            aria-label="Remove member"
           >
             Remove
           </Button>
@@ -190,6 +208,19 @@ export const MembershipActionModal = ({
               activeFamilyId={membership.family_id}
             />
           )}
+          <Can action="setColor">
+            <ColorSwatchPicker
+              label="Calendar Color"
+              value={membership.color}
+              onChange={(value) =>
+                updateColorMutation.mutate({
+                  familyId: membership.family_id,
+                  membershipId: membership.id,
+                  color: value as MembershipColor,
+                })
+              }
+            />
+          </Can>
           <span className={styles.buttonContainer}>{modalActions}</span>
           {claimFormOpen && (
             <ClaimManagedForm
@@ -218,7 +249,7 @@ export const MembershipActionModal = ({
         size={ButtonSize.Small}
         onClick={open}
       >
-        Edit Membership
+        <Icon name={IconName.Edit} size={18} />
       </Button>
     </>
   );

@@ -157,13 +157,14 @@
   padding-right: var(--space-8);
 }
 
-@media (--tablet) {
+@media (--desktop) {
   .navContainer {
     display: flex;
+    max-width: 300px;
   }
 
   .contentWrapper {
-    margin-left: 40%;
+    margin-left: 300px;
   }
 
   .header {
@@ -178,10 +179,10 @@
 
 @media (--desktop) {
   .navContainer {
-    max-width: 300px;
+    
   }
 
   .contentWrapper {
-    margin-left: 300px;
+    
   }
 }

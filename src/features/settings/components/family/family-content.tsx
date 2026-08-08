@@ -33,12 +33,10 @@ import {
   useUpdateMembership,
 } from '@/features/family/api/membership/update-membership';
 import { useMemberships } from '@/features/family/api/membership/get-memberships';
-import { useUser } from '@/features/auth/auth';
 import { CanManaged } from '@/components/can-managed';
 
 export const FamilyContent = () => {
   const { families, activeFamily } = useFamily();
-  const user = useUser();
   const { addToast } = useSnackbar();
   const formerMembershipsQuery = useFormerMemberships({
     familyId: activeFamily?.id ?? null,
@@ -67,7 +65,6 @@ export const FamilyContent = () => {
       <MemberList
         memberships={membershipsQuery.data ?? []}
         actions={(membership) => {
-          if (user?.data?.person.id === membership.person.id) return undefined;
           if (membership.person.managed) {
             return (
               <CanManaged targetPerson={membership.person}>
