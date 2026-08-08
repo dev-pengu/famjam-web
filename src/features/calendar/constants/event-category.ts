@@ -19,7 +19,7 @@ export const CATEGORY_COLOR: Record<EventCategoryType, ChipColor> = {
 export const CATEGORY_ICON: Record<EventCategoryType, IconName> = {
   school: IconName.School,
   practice_sports: IconName.Sports,
-  medical: IconName.Add, //TODO
+  medical: IconName.Medical,
   travel: IconName.Travel,
 };
 

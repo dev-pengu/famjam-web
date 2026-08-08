@@ -21,38 +21,48 @@
 .grid {
   display: flex;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
   border: 1px solid var(--color-border-secondary);
   border-radius: var(--radius-8);
 }
 
 .gutterColumn {
   flex-shrink: 0;
-  width: 56px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  width: var(--space-40);
+  background: var(--color-surface-primary);
   border-right: 1px solid var(--color-border-secondary);
 }
 
 .dayHeaderSpacer {
-  height: 56px;
+  height: 48px;
   border-bottom: 1px solid var(--color-border-secondary);
 }
 
 .allDaySpacer {
-  min-height: 36px;
+  min-height: 32px;
   border-bottom: 1px solid var(--color-border-secondary);
 }
 
 .hourLabel {
   box-sizing: border-box;
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-2);
   text-align: right;
   color: var(--color-text-tertiary);
-  font-size: var(--font-size-12);
+  font-size: var(--font-size-10);
   transform: translateY(-0.5em);
 }
 
+/* One day fills (nearly) the full viewport at a time, with a peek of the
+   next day to hint that swiping reveals more. Desktop shows all days
+   side-by-side instead - see the tablet override below. */
 .dayColumn {
-  flex: 1 0 130px;
-  min-width: 130px;
+  flex: 0 0 calc(100% - 56px);
+  min-width: 0;
+  scroll-snap-align: start;
   border-right: 1px solid var(--color-border-secondary);
 }
 
@@ -60,8 +70,12 @@
   border-right: none;
 }
 
+.dayColumnFull {
+  flex: 1 1 auto;
+}
+
 .dayHeader {
-  height: 56px;
+  height: 48px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -75,13 +89,13 @@
 }
 
 .allDayRow {
-  min-height: 36px;
+  min-height: 32px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-4);
-  padding: var(--space-4);
+  padding: var(--space-2) var(--space-4);
   border-bottom: 1px solid var(--color-border-secondary);
 }
 
@@ -105,7 +119,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: var(--space-4);
+  padding: var(--space-2);
   border: none;
   border-left: 3px solid var(--color-border-primary);
   border-radius: var(--radius-4);
@@ -129,4 +143,47 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (--tablet) {
+  .grid {
+    scroll-snap-type: none;
+  }
+
+  .gutterColumn {
+    width: 56px;
+  }
+
+  .dayHeaderSpacer {
+    height: 56px;
+  }
+
+  .allDaySpacer {
+    min-height: 36px;
+  }
+
+  .hourLabel {
+    padding: 0 var(--space-4);
+    font-size: var(--font-size-12);
+  }
+
+  .dayColumn {
+    flex: 1 0 130px;
+    min-width: 130px;
+    scroll-snap-align: none;
+  }
+
+  .dayHeader {
+    height: 56px;
+  }
+
+  .allDayRow {
+    min-height: 36px;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .eventBlock {
+    padding: var(--space-4);
+  }
 }

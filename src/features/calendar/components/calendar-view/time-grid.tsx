@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { DateTime } from 'luxon';
 import { Chip, Typography, TypographyTextSize } from '@famjam/ui';
 
+import { cx } from '@/utils/cx';
 import type { EventOccurrence } from '@/types/api';
 import { CATEGORY_COLOR } from '../../constants/event-category';
 import { packDayOccurrences, HOUR_HEIGHT_PX, type TimedOccurrence } from './pack-day-occurrences';
@@ -70,7 +71,10 @@ export const TimeGrid = ({
         const dayTimed = packDayOccurrences(timedByDate.get(dateKey) ?? []);
 
         return (
-          <div key={dateKey} className={styles.dayColumn}>
+          <div
+            key={dateKey}
+            className={cx(styles.dayColumn, days.length === 1 && styles.dayColumnFull)}
+          >
             <div className={styles.dayHeader}>
               <Typography.Body size={TypographyTextSize.Small} muted>
                 {day.toFormat('ccc')}

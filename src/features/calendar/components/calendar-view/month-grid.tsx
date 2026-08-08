@@ -1,13 +1,19 @@
 import { useMemo } from 'react';
 import { DateTime } from 'luxon';
-import { Typography, TypographyTextSize } from '@famjam/ui';
+import {
+  Breakpoint,
+  Typography,
+  TypographyTextSize,
+  useBreakpoints,
+} from '@famjam/ui';
 
 import type { EventOccurrence } from '@/types/api';
 import type { MonthGridProps } from './month-grid.types';
 import styles from './month-grid.module.css';
 
 const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const MAX_VISIBLE_PER_DAY = 3;
+const MAX_VISIBLE_PER_DAY_MOBILE = 2;
+const MAX_VISIBLE_PER_DAY_DEFAULT = 3;
 
 const chunkIntoWeeks = (days: DateTime[]): DateTime[][] => {
   const weeks: DateTime[][] = [];
@@ -24,13 +30,21 @@ export const MonthGrid = ({
   onOccurrenceClick,
   onDayClick,
 }: Readonly<MonthGridProps>) => {
+  const { breakpoint } = useBreakpoints();
+  const maxVisiblePerDay =
+    breakpoint === Breakpoint.Mobile
+      ? MAX_VISIBLE_PER_DAY_MOBILE
+      : MAX_VISIBLE_PER_DAY_DEFAULT;
+
   const occurrencesByDate = useMemo(() => {
     const byDate = new Map<string, EventOccurrence[]>();
 
     occurrences
       .filter((o) => !o.cancelled)
       .forEach((occurrence) => {
-        const start = DateTime.fromISO(occurrence.starts_at, { zone: displayTimezone });
+        const start = DateTime.fromISO(occurrence.starts_at, {
+          zone: displayTimezone,
+        });
         const dateKey = start.toISODate() ?? '';
         const existing = byDate.get(dateKey) ?? [];
         existing.push(occurrence);
@@ -39,7 +53,8 @@ export const MonthGrid = ({
 
     byDate.forEach((dayOccurrences) => {
       dayOccurrences.sort((a, b) => {
-        if (a.event.all_day !== b.event.all_day) return a.event.all_day ? -1 : 1;
+        if (a.event.all_day !== b.event.all_day)
+          return a.event.all_day ? -1 : 1;
         return a.starts_at.localeCompare(b.starts_at);
       });
     });
@@ -67,19 +82,25 @@ export const MonthGrid = ({
           {week.map((day) => {
             const dateKey = day.toISODate() ?? '';
             const dayOccurrences = occurrencesByDate.get(dateKey) ?? [];
-            const visible = dayOccurrences.slice(0, MAX_VISIBLE_PER_DAY);
+            const visible = dayOccurrences.slice(0, maxVisiblePerDay);
             const overflowCount = dayOccurrences.length - visible.length;
 
             return (
               <div
                 key={dateKey}
                 className={
-                  day.month === currentMonth ? styles.dayCell : `${styles.dayCell} ${styles.outsideMonth}`
+                  day.month === currentMonth
+                    ? styles.dayCell
+                    : `${styles.dayCell} ${styles.outsideMonth}`
                 }
               >
                 <button
                   type="button"
-                  className={dateKey === today ? `${styles.dayNumber} ${styles.today}` : styles.dayNumber}
+                  className={
+                    dateKey === today
+                      ? `${styles.dayNumber} ${styles.today}`
+                      : styles.dayNumber
+                  }
                   onClick={() => onDayClick(day)}
                 >
                   {day.toFormat('d')}
@@ -88,7 +109,9 @@ export const MonthGrid = ({
                 <div className={styles.eventList}>
                   {visible.map((occurrence) => {
                     const firstParticipant = occurrence.event.participants[0];
-                    const dotColor = firstParticipant ? colorByPersonId.get(firstParticipant.id) : undefined;
+                    const dotColor = firstParticipant
+                      ? colorByPersonId.get(firstParticipant.id)
+                      : undefined;
 
                     return (
                       <button
@@ -99,7 +122,10 @@ export const MonthGrid = ({
                       >
                         <span
                           className={styles.eventDot}
-                          style={{ background: dotColor ?? 'var(--color-border-primary)' }}
+                          style={{
+                            background:
+                              dotColor ?? 'var(--color-border-primary)',
+                          }}
                         />
                         <span className={styles.eventLabel}>
                           {!occurrence.event.all_day &&
@@ -110,8 +136,16 @@ export const MonthGrid = ({
                     );
                   })}
                   {overflowCount > 0 && (
-                    <button type="button" className={styles.moreButton} onClick={() => onDayClick(day)}>
-                      <Typography.Body size={TypographyTextSize.Small} muted>
+                    <button
+                      type="button"
+                      className={styles.moreButton}
+                      onClick={() => onDayClick(day)}
+                    >
+                      <Typography.Body
+                        size={TypographyTextSize.Small}
+                        muted
+                        style={{ fontSize: '8px' }}
+                      >
                         +{overflowCount} more
                       </Typography.Body>
                     </button>
