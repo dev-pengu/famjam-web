@@ -30,7 +30,7 @@ import { useDisclosure } from '@/hooks/use-diclosure';
 import { useUser } from '@/features/auth/api/get-user';
 import { useFamily } from '@/features/family/context/family-context';
 import { useMemberships } from '@/features/family/api/membership/get-memberships';
-import { MEMBERSHIP_COLOR_TOKEN } from '@/utils/membership-color';
+import { APP_COLOR_TOKEN } from '@/utils/color-palette';
 import { EventFormDrawer } from '../event-form-drawer';
 import { OccurrenceEditChoiceModal } from '../occurrence-edit-choice-modal';
 import { useDeleteEvent } from '../../api/delete-event';
@@ -42,7 +42,11 @@ import { useDeleteOccurrence } from '../../api/delete-occurrence';
 import { useEventReminders } from '../../api/event-reminders/get-reminders';
 import { useCreateEventReminder } from '../../api/event-reminders/create-reminder';
 import { useDeleteEventReminder } from '../../api/event-reminders/delete-reminder';
-import { CATEGORY_LABEL, CATEGORY_COLOR, CATEGORY_OPTIONS } from '../../constants/event-category';
+import {
+  CATEGORY_LABEL,
+  CATEGORY_COLOR,
+  CATEGORY_OPTIONS,
+} from '../../constants/event-category';
 import type { EventDetailModalProps } from './event-detail-modal.types';
 import styles from './event-detail-modal.module.css';
 
@@ -126,10 +130,7 @@ export const EventDetailModal = ({
   });
 
   const colorByPersonId = new Map(
-    (memberships ?? []).map((m) => [
-      m.person.id,
-      MEMBERSHIP_COLOR_TOKEN[m.color],
-    ]),
+    (memberships ?? []).map((m) => [m.person.id, APP_COLOR_TOKEN[m.color]]),
   );
 
   const managedParticipants = occurrence.event.participants.filter(

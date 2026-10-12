@@ -2,7 +2,7 @@ allowBuilds:
   esbuild: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
-  - '@famjam/fonts@0.0.17'
-  - '@famjam/icons@0.0.17'
-  - '@famjam/tokens@0.0.17'
-  - '@famjam/ui@0.0.17'
+  - '@famjam/fonts@0.0.21'
+  - '@famjam/icons@0.0.21'
+  - '@famjam/tokens@0.0.21'
+  - '@famjam/ui@0.0.21'

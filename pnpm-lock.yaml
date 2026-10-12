@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@famjam/fonts':
-        specifier: ^0.0.17
-        version: 0.0.17
+        specifier: ^0.0.21
+        version: 0.0.21
       '@famjam/icons':
-        specifier: ^0.0.17
-        version: 0.0.17
+        specifier: ^0.0.21
+        version: 0.0.21
       '@famjam/tokens':
-        specifier: ^0.0.17
-        version: 0.0.17
+        specifier: ^0.0.21
+        version: 0.0.21
       '@famjam/ui':
-        specifier: ^0.0.17
-        version: 0.0.17(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)
+        specifier: ^0.0.21
+        version: 0.0.21(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)
       '@hookform/resolvers':
         specifier: ^5.5.3
         version: 5.5.3(@sinclair/typebox@0.27.12)(@standard-schema/spec@1.1.0)(react-hook-form@7.82.0(react@19.2.8))(zod@4.4.3)
@@ -80,6 +80,9 @@ importers:
       ua-parser-js:
         specifier: ^2.0.10
         version: 2.0.10
+      uuid:
+        specifier: ^14.0.2
+        version: 14.0.2
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -531,17 +534,17 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@famjam/fonts@0.0.17':
-    resolution: {integrity: sha512-1+kPZi684+Qm8iSne7rsvP13mLA/IikpJltu7S69AA7qNTwd4b2Gd1GAY1/Gdts9dkS22WyvUtnkvUh1tmQeug==}
+  '@famjam/fonts@0.0.21':
+    resolution: {integrity: sha512-iFnz9+4CbY6PO4XYEQQ7TxPh2SMJafyOtSkEJhKemFSaHxbw0xfRcLhn7TwsmdTS+R+ocgAOq3/yZLjgKX9f6g==}
 
-  '@famjam/icons@0.0.17':
-    resolution: {integrity: sha512-Say2bUB6xgg6YlMTkM5bYH0PPmlpez8NwgIFItdKvLe6DMKl+EVbZaps6XeXei+q6DrVpLwuPuy8vDEpgo/O7g==}
+  '@famjam/icons@0.0.21':
+    resolution: {integrity: sha512-ZQX/+uYfgut3OFn9nTw2KLwL6d4rkZCn1PrHRE8QHkTsXo3NMIAsUJ8e5hwmw9Cl8Ij23s5CkSnFHaQGnroLQA==}
 
-  '@famjam/tokens@0.0.17':
-    resolution: {integrity: sha512-Vg/w4h27mTbWfRwzcXaPJORpK5TuUWXzbE5z3W6AmanpHbzrZO2GqjoGxdeQaeO7I5bBWaZFUm7iK9dEY5AamA==}
+  '@famjam/tokens@0.0.21':
+    resolution: {integrity: sha512-cHVEENDa6QnhVranCZ6dKMo9QJg/JBV0oPMKCoQwyTLbT5ern4rBmYa9QnrxBp0RTiTzzmO775flbNrFO1YIDw==}
 
-  '@famjam/ui@0.0.17':
-    resolution: {integrity: sha512-GuIy5YujnMTfD2nqzrb/dNAMhJX4YFul0IZ/CZZIiaXUBfwF5g5i8EILsixB0Ut12hbWMJfvejHpDtm2bONV5w==}
+  '@famjam/ui@0.0.21':
+    resolution: {integrity: sha512-rlx7dYxV/GxVzm/jkpssvEtA8+gD7HBSJXq0uKFn0k9FZqWBDZ6WcWT8B/1HcNYtzkuKR8TX8fdSQSsKMwPg7w==}
     peerDependencies:
       react-native-svg: '>=14'
 
@@ -2773,6 +2776,7 @@ packages:
   eslint@9.39.5:
     resolution: {integrity: sha512-DgZS62aPLXKlnxILS/AYCoRvHaZeXceIzlXPkkGGzJWSow1aEk0lbTlxUSlyjC8jcaKxAdOnTDz+o1JFSBsyjw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -4423,6 +4427,10 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
+  uuid@14.0.2:
+    resolution: {integrity: sha512-xZe/16rV4aa+HGSOCiY2YeLT1OybRLrrkL/Rqaq7p7GMVXjFh+6wN4oMYgjFmnSnhY8t6Xpdl2l9qmnHYuMHwQ==}
+    hasBin: true
+
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
@@ -4934,19 +4942,19 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@famjam/fonts@0.0.17': {}
+  '@famjam/fonts@0.0.21': {}
 
-  '@famjam/icons@0.0.17': {}
+  '@famjam/icons@0.0.21': {}
 
-  '@famjam/tokens@0.0.17':
+  '@famjam/tokens@0.0.21':
     dependencies:
       json-to-ts: 2.1.0
 
-  '@famjam/ui@0.0.17(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)':
+  '@famjam/ui@0.0.21(@types/node@24.13.3)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-native-svg@15.15.5(react-native@0.86.0(@babel/core@7.29.7)(@types/react@19.2.17)(react@19.2.8))(react@19.2.8))(typescript@6.0.3)':
     dependencies:
-      '@famjam/fonts': 0.0.17
-      '@famjam/icons': 0.0.17
-      '@famjam/tokens': 0.0.17
+      '@famjam/fonts': 0.0.21
+      '@famjam/icons': 0.0.21
+      '@famjam/tokens': 0.0.21
       '@radix-ui/primitive': 1.1.7
       '@radix-ui/react-accessible-icon': 1.1.13(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@radix-ui/react-checkbox': 1.3.9(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -9036,6 +9044,8 @@ snapshots:
       react: 19.2.8
 
   utils-merge@1.0.1: {}
+
+  uuid@14.0.2: {}
 
   v8-compile-cache-lib@3.0.1: {}
 

@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '@/lib/api-client';
 import type { MutationConfig } from '@/lib/react-query';
-import type { Membership, MembershipColor } from '@/types/api';
+import type { Membership, AppColor } from '@/types/api';
 import { getMembershipQueryOptions } from './get-memberships';
 
 export const updateMembershipColor = ({
@@ -11,7 +11,7 @@ export const updateMembershipColor = ({
 }: {
   familyId: string;
   membershipId: string;
-  color: MembershipColor;
+  color: AppColor;
 }): Promise<Membership> => {
   return apiClient.patch<Membership>(
     `/api/v1/families/${familyId}/memberships/${membershipId}/set_color`,

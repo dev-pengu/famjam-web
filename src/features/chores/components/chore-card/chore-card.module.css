@@ -1,0 +1,42 @@
+.cardWrapper {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-border-tertiary);
+  border-bottom: 1px solid var(--color-border-tertiary);
+  border-left: 5px solid;
+  padding: var(--space-8) 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--space-12);
+}
+
+.completeButton {
+  color: var(--color-surface-muted);
+  border: 2px solid var(--color-surface-muted);
+  max-width: 36px;
+  max-height: 36px;
+  margin: 0 var(--space-8);
+}
+
+.reward {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-4);
+}

@@ -141,6 +141,11 @@ export const DashboardLayout = ({
       to: paths.app.calendar.getHref(),
       icon: IconName.Calendar,
     },
+    {
+      name: 'Chores',
+      to: paths.app.chores.getHref(),
+      icon: IconName.Check,
+    },
   ].filter(Boolean) as SideNavigationItem[];
 
   return (

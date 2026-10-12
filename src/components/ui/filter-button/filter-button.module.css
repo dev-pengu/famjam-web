@@ -1,0 +1,35 @@
+.valuesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin: var(--space-12);
+}
+
+.sliderGroup {
+  margin: var(--space-12);
+}
+
+.filter,
+.sorts {
+  margin-top: var(--space-12);
+  margin-left: var(--space-8);
+}
+
+.filtered {
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface-inverse-tertiary) 70%,
+    transparent
+  );
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-top: var(--space-24);
+}
+
+.sortList {
+  margin: var(--space-12);
+}

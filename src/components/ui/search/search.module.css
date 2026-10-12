@@ -1,0 +1,5 @@
+.searchInputWrapper {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+}

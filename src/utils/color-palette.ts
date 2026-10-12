@@ -1,10 +1,7 @@
 import { Color } from '@famjam/tokens/base.styles';
-import type { MembershipColor } from '@/types/api';
+import type { AppColor } from '@/types/api';
 
-// Maps the backend's named member colors to the matching @famjam/tokens
-// palette token (Color.Palette*), shared wherever a member's assigned color
-// needs to render (calendar chips/avatars, the color picker itself).
-export const MEMBERSHIP_COLOR_TOKEN: Record<MembershipColor, Color> = {
+export const APP_COLOR_TOKEN: Record<AppColor, Color> = {
   red: Color.PaletteRed,
   orange: Color.PaletteOrange,
   amber: Color.PaletteAmber,

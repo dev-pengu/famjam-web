@@ -1,6 +1,5 @@
 .container {
   padding: var(--space-6) 0;
-  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -14,15 +13,19 @@
 }
 
 .contentWrapper {
-  padding: var(--space-12) var(--space-12);
+  padding: var(--space-12) 0;
 }
 
-@media (--table) {
+@media (--tablet) {
   .titleWrapper {
     padding: 0 var(--space-16);
   }
 
   .contentWrapper {
     padding: var(--space-12) var(--space-16);
+  }
+
+  .container {
+    max-width: 80%;
   }
 }

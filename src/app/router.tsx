@@ -69,8 +69,11 @@ export const createAppRouter = (queryClient: QueryClient) =>
         },
         {
           path: paths.app.calendar.path,
-          lazy: () =>
-            import('./pages/app/Calendar').then(convert(queryClient)),
+          lazy: () => import('./pages/app/Calendar').then(convert(queryClient)),
+        },
+        {
+          path: paths.app.chores.path,
+          lazy: () => import('./pages/app/Chores').then(convert(queryClient)),
         },
       ],
     },

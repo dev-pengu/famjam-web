@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-8) var(--space-12);
+}
+
+.listWrapper {
+  margin: 0;
+  padding: 0;
+}

@@ -16,10 +16,10 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@famjam/fonts": "^0.0.17",
-    "@famjam/icons": "^0.0.17",
-    "@famjam/tokens": "^0.0.17",
-    "@famjam/ui": "^0.0.17",
+    "@famjam/fonts": "^0.0.21",
+    "@famjam/icons": "^0.0.21",
+    "@famjam/tokens": "^0.0.21",
+    "@famjam/ui": "^0.0.21",
     "@hookform/resolvers": "^5.5.3",
     "@radix-ui/react-dialog": "^1.1.22",
     "@radix-ui/react-tabs": "^1.1.21",
@@ -40,6 +40,7 @@
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.18.0",
     "ua-parser-js": "^2.0.10",
+    "uuid": "^14.0.2",
     "zod": "^4.4.3"
   },
   "devDependencies": {

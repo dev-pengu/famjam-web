@@ -1,0 +1,394 @@
+.button {
+  --bg-color: var(--color-surface-inverse-primary);
+  --bg-color-hover: var(--color-surface-inverse-secondary);
+  --text-color: var(--color-text-inverse);
+  --text-color-hover: var(--color-text-inverse);
+  --border-color: var(--color-border-primary);
+  --border-color-hover: var(--color-border-primary);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-primary),
+    12%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-primary),
+    22%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-tertiary);
+  --text-glass-color-hover: var(--color-text-secondary);
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: var(--space-2);
+  cursor: pointer;
+  border-radius: var(--radius-40);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentHidden {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.spinnerOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small {
+  min-height: var(--size-32);
+  min-width: var(--size-32);
+  max-height: var(--size-32);
+  max-width: var(--size-32);
+}
+
+.medium {
+  min-height: var(--size-40);
+  min-width: var(--size-40);
+  max-height: var(--size-40);
+  max-width: var(--size-40);
+}
+
+.large {
+  min-height: var(--size-48);
+  min-width: var(--size-48);
+  max-height: var(--size-48);
+  max-width: var(--size-48);
+}
+
+.filled {
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.filled:hover:not(:disabled):not([data-disabled]):not([data-loading]) {
+  background: var(--bg-color-hover);
+  color: var(--text-color-hover);
+}
+
+.filled:active:not(:disabled):not([data-disabled]):not([data-loading]) {
+  background: var(--bg-color-hover);
+  opacity: 0.92;
+}
+
+.outline {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--border-color);
+}
+
+.outline:hover:not(:disabled):not([data-disabled]):not([data-loading]) {
+  border-color: var(--border-color-hover);
+  background: var(--bg-color);
+  color: var(--text-color-hover);
+}
+
+.outline:active:not(:disabled):not([data-disabled]):not([data-loading]) {
+  border-color: var(--border-color-hover);
+  background: var(--bg-color);
+  color: var(--text-color-hover);
+  opacity: 0.92;
+}
+
+.ghost {
+  border: none;
+  background: transparent;
+  color: var(--bg-color);
+}
+
+.ghost:hover:not(:disabled):not([data-disabled]):not([data-loading]) {
+  background: var(--bg-color-hover);
+  color: var(--text-color-hover);
+}
+
+.ghost:active:not(:disabled):not([data-disabled]):not([data-loading]) {
+  background: var(--bg-color-hover);
+  opacity: 0.92;
+}
+
+.glass {
+  background: var(--bg-glass-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-glass-color);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass:hover {
+  background: var(--bg-glass-color-hover);
+  color: var(--text-glass-color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.glass:active:not(:disabled):not([data-disabled]):not([data-loading]) {
+  transform: translateY(0);
+  box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.3);
+}
+
+.text {
+  background: transparent;
+  border: none;
+  color: var(--bg-color);
+}
+
+.text:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface-inverse-primary) 8%,
+    transparent
+  );
+  color: color-mix(in srgb, var(--bg-color) 70%, transparent);
+}
+
+.text:active:not(:disabled):not([data-disabled]):not([data-loading]) {
+  color: color-mix(in srgb, var(--bg-color) 85%, transparent);
+}
+
+.button:disabled,
+.button[data-disabled],
+.button[data-loading] {
+  cursor: not-allowed;
+}
+
+.filled:disabled,
+.filled[data-disabled],
+.filled[data-loading] {
+  background: var(--color-button-disabled-surface);
+  color: var(--color-button-disabled-label);
+}
+
+.outline:disabled,
+.outline[data-disabled],
+.outline[data-loading] {
+  background: transparent;
+  border-color: var(--color-button-disabled-border);
+  color: var(--color-button-disabled-label);
+}
+
+.ghost:disabled,
+.ghost[data-disabled],
+.ghost[data-loading] {
+  color: var(--color-button-disabled-label);
+}
+
+.glass:disabled,
+.glass[data-disabled],
+.glass[data-loading] {
+  opacity: 0.5;
+}
+
+.text:disabled,
+.text[data-disabled],
+.text[data-loading] {
+  color: var(--color-button-disabled-label);
+}
+
+.button.success {
+  --bg-color: var(--color-surface-success-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-success-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-success);
+  --border-color-hover: var(--color-border-success);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-success-dark) 6%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-success-dark) 11%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-success);
+  --text-glass-color-hover: var(--color-text-success);
+}
+
+.button.info {
+  --bg-color: var(--color-surface-info-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-info-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-info);
+  --border-color-hover: var(--color-border-info);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-info-dark) 6%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-info-dark) 11%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-info);
+  --text-glass-color-hover: var(--color-text-info);
+}
+
+.button.warning {
+  --bg-color: var(--color-surface-warning-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-warning-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-warning);
+  --border-color-hover: var(--color-border-warning);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-warning-dark) 6%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-warning-dark) 11%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-warning);
+  --text-glass-color-hover: var(--color-text-warning);
+}
+
+.button.error {
+  --bg-color: var(--color-surface-error-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-error-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-error);
+  --border-color-hover: var(--color-border-error);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-error-dark) 6%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-error-dark) 11%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-error);
+  --text-glass-color-hover: var(--color-text-error);
+}
+
+.button.primary {
+  --bg-color: var(--color-surface-brand-primary-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-brand-primary-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-brand-primary-dark);
+  --border-color-hover: var(--color-border-brand-primary-dark);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-brand-primary-dark) 12%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-brand-primary-dark) 22%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-brand-primary-dark);
+  --text-glass-color-hover: var(--color-text-brand-primary-dark);
+}
+
+.button.secondary {
+  --bg-color: var(--color-surface-brand-secondary-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-brand-secondary-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-brand-secondary-dark);
+  --border-color-hover: var(--color-border-brand-secondary-dark);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-brand-secondary-dark) 12%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-brand-secondary-dark) 22%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-brand-secondary-dark);
+  --text-glass-color-hover: var(--color-text-brand-secondary-dark);
+}
+
+.button.accent {
+  --bg-color: var(--color-surface-accent-dark);
+  --bg-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-accent-dark) 80%,
+    transparent
+  );
+  --border-color: var(--color-border-brand-accent-dark);
+  --border-color-hover: var(--color-border-brand-accent-dark);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-accent-dark) 12%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-accent-dark) 22%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-brand-accent-dark);
+  --text-glass-color-hover: var(--color-text-brand-accent-dark);
+}
+
+.button.inverted {
+  --bg-color: var(--color-surface-primary);
+  --bg-color-hover: var(--color-surface-secondary);
+  --text-color: var(--color-text);
+  --text-color-hover: var(--color-text);
+  --border-color: var(--color-border-inverse);
+  --border-color-hover: var(--color-border-inverse);
+  --bg-glass-color: color-mix(
+    in srgb,
+    var(--color-surface-inverse-primary),
+    12%,
+    transparent
+  );
+  --bg-glass-color-hover: color-mix(
+    in srgb,
+    var(--color-surface-inverse-primary),
+    22%,
+    transparent
+  );
+  --text-glass-color: var(--color-text-inverse);
+  --text-glass-color-hover: var(--color-text-inverse);
+}

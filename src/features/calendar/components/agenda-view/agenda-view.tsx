@@ -17,7 +17,7 @@ import {
 import { useDisclosure } from '@/hooks/use-diclosure';
 import { useDisplayTimezone } from '@/hooks/use-display-timezone';
 import { useMemberships } from '@/features/family/api/membership/get-memberships';
-import { MEMBERSHIP_COLOR_TOKEN } from '@/utils/membership-color';
+import { APP_COLOR_TOKEN } from '@/utils/color-palette';
 import type { EventOccurrence } from '@/types/api';
 import { EventDetailModal } from '../event-detail-modal';
 import { CalendarViewOptions } from '../calendar-view-options';
@@ -52,10 +52,7 @@ export const AgendaView = ({ familyId }: Readonly<AgendaViewProps>) => {
     useState<EventOccurrence | null>(null);
 
   const colorByPersonId = new Map(
-    (memberships ?? []).map((m) => [
-      m.person.id,
-      MEMBERSHIP_COLOR_TOKEN[m.color],
-    ]),
+    (memberships ?? []).map((m) => [m.person.id, APP_COLOR_TOKEN[m.color]]),
   );
 
   const groups = useMemo(() => {

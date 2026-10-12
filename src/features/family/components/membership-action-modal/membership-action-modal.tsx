@@ -29,7 +29,7 @@ import { useDeleteDependent } from '../../api/dependent/delete-dependent';
 import { CanManaged } from '@/components/can-managed';
 import { ClaimManagedForm } from '../claim-managed-form/claim-managed-form';
 import { GuardianList } from '../guardian-list/guardian-list';
-import type { MembershipColor } from '@/types/api';
+import type { AppColor } from '@/types/api';
 
 export const MembershipActionModal = ({
   membership,
@@ -216,7 +216,7 @@ export const MembershipActionModal = ({
                 updateColorMutation.mutate({
                   familyId: membership.family_id,
                   membershipId: membership.id,
-                  color: value as MembershipColor,
+                  color: value as AppColor,
                 })
               }
             />

@@ -50,5 +50,9 @@ export const paths = {
       path: 'calendar',
       getHref: () => '/app/calendar',
     },
+    chores: {
+      path: 'chores',
+      getHref: () => '/app/chores',
+    },
   },
 } as const;

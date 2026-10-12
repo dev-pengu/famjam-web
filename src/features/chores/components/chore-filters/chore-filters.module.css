@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  overflow-x: scroll;
+  margin-top: var(--space-8);
+  padding-left: var(--space-6);
+}
+
+.quickFilter.active {
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface-tertiary) 70%,
+    transparent
+  );
+}

@@ -71,7 +71,7 @@ export type Family = Entity<{
   memberships: Membership[];
 }>;
 
-export type MembershipColor =
+export type AppColor =
   | 'red'
   | 'orange'
   | 'amber'
@@ -89,7 +89,7 @@ export type Membership = Entity<{
   family_id: string;
   role: Role;
   status: 'active' | 'left' | 'removed';
-  color: MembershipColor;
+  color: AppColor;
   joined_at: string | null;
   left_at: string | null;
   removed_at: string | null;
@@ -228,3 +228,42 @@ export type NotificationPreference = {
 export type IcalFeedToken = Entity<{
   webcal_url: string;
 }>;
+
+export type Chore = Entity<{
+  family_id: string;
+  assignee?: Membership;
+  created_by_user_id: string;
+  title: string;
+  category: string;
+  category_color: AppColor;
+  description?: string;
+  coin_value?: number;
+  status: 'active' | 'archived' | 'outstanding';
+  starts_on?: string;
+  recurrence_frequency?: number;
+  recurrence_interval?: number;
+  recurrence_byday?: string;
+  recurrence_until?: string;
+}>;
+
+export type ChoreCompletion = Entity<{
+  chore_id: string;
+  due_on: string;
+  completed_by_membership_id: string;
+  completed_by: Membership;
+  completed_at: string;
+  coin_value: number;
+  status: 'pending_approval' | 'approved' | 'rejected';
+  reviewed_by_user_id: 'string';
+  reviewed_at: string;
+  rejection_reason: string;
+  coin_transaction_id: string;
+}>;
+
+export type ChoreOccurrence = {
+  due_on: string;
+  status: 'pending_approval' | 'approved' | 'rejected' | 'outstanding';
+  series: string;
+  chore: Chore;
+  completion: ChoreCompletion;
+};
